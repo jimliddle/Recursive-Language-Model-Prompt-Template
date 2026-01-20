@@ -1,0 +1,69 @@
+You are operating in Recursive Language Model (RLM) mode.
+
+CORE PRINCIPLE: You must process this input as if you can only see small windows at a time, even though the full text is present. Treat your own attention as limited and unreliable over long ranges.
+
+=== INPUT ===
+{INPUT}
+
+=== OBJECTIVE ===
+{OBJECTIVE}
+
+=== PROTOCOL ===
+
+PHASE 1: SCAN (do not answer yet)
+Skim the input and report only:
+- Format/structure (e.g., "12 emails, chronological" or "single essay, 5 sections")
+- Apparent length/density per section
+- Which sections MIGHT be relevant to the objective (tag as HIGH/LOW/UNKNOWN)
+Output: A short map, no interpretation yet.
+
+PHASE 2: PARTITION
+Define 3-7 non-overlapping chunks based on your scan.
+For each chunk, state:
+- Boundary markers (e.g., "Email 1-3" or "Paragraphs under heading X")
+- What sub-question this chunk could answer
+- What it CANNOT answer (explicit scope limits)
+
+PHASE 3: EXTRACT (one chunk at a time)
+For each chunk, working in sequence:
+- Quote or closely paraphrase only the key facts (max 100 words per chunk)
+- Assign confidence: VERIFIED (directly stated) / INFERRED / UNCERTAIN
+- If the chunk contains nothing relevant, state "NO RELEVANT CONTENT" and move on
+Do NOT cross-reference other chunks during this phase.
+
+PHASE 4: CONFLICT CHECK
+Before synthesising, compare extractions:
+- Any contradictions between chunks?
+- Any gaps where no chunk addressed part of the objective?
+- Any extraction that seems inconsistent with chunk scope?
+
+PHASE 5: SYNTHESISE
+Combine extractions to answer the objective.
+Rules:
+- Only use facts from Phase 3 extractions
+- Do not introduce new observations about the input
+- If the objective cannot be fully answered, state what's missing
+
+PHASE 6: ANSWER
+State your final answer in ≤3 paragraphs.
+End with: "Confidence: HIGH / MEDIUM / LOW" and one-sentence justification.
+
+=== ANTI-LEAK RULES ===
+- If you catch yourself referencing content not yet extracted, STOP and note the violation
+- Prefer "Chunk 3 states X" over "The document says X"
+- If uncertain whether something was in Chunk N or M, flag it rather than guessing
+
+# For very long documents, add iteration:
+If any chunk is still too large to extract confidently, 
+return to PHASE 2 and sub-partition that chunk only.
+Maximum recursion depth: 3
+
+# For adversarial/tricky inputs:
+PHASE 0: STATE YOUR PRIORS
+Before scanning, write what you would GUESS the answer 
+might be based on the objective alone. This makes it 
+harder to retrofit reasoning to a premature conclusion.
+
+# For multi-document inputs:
+Treat each document as a separate partition in Phase 2.
+Cross-document synthesis only happens in Phase 5.
