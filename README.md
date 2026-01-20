@@ -2,15 +2,15 @@ This repo provide a prompt template that simulates an RLM (as per https://arxiv.
 
 This prompt:
 
-Forces structured thinking: The explicit steps prevent the model from just "vibes-based" reasoning over a huge input
+- Forces structured thinking: The explicit steps prevent the model from just "vibes-based" reasoning over a huge input
 
-Locality constraint: "Do NOT reference information outside the current subset" is a way to simulate the isolation that real RLMs enforce mechanically
+- Locality constraint: "Do NOT reference information outside the current subset" is a way to simulate the isolation that real RLMs enforce mechanically
 
-Hierarchical synthesis: Mirrors how the paper's approach aggregates results bottom-up
+- Hierarchical synthesis: Mirrors how the paper's approach aggregates results bottom-up
 
 Clear output structure: Makes it easy to see where reasoning might have gone wrong
 
-Limitations:
+- Limitations:
 
 The model still sees everything - The whole point of RLMs is that the root model never sees the full string directly in its context.
 No actual recursion - Real RLMs spawn sub-calls that have genuinely isolated context. This prompt simulates the structure but not the mechanism. The model has to pretend it can't see things it  can see.
