@@ -8,9 +8,9 @@ This prompt:
 
 - Hierarchical synthesis: Mirrors how the paper's approach aggregates results bottom-up
 
-Clear output structure: Makes it easy to see where reasoning might have gone wrong
+- Clear output structure: Makes it easy to see where reasoning might have gone wrong
 
-- Limitations:
+Limitations:
 
 The model still sees everything - The whole point of RLMs is that the root model never sees the full string directly in its context.
 No actual recursion - Real RLMs spawn sub-calls that have genuinely isolated context. This prompt simulates the structure but not the mechanism. The model has to pretend it can't see things it  can see.
