@@ -12,9 +12,9 @@ This prompt:
 
 Limitations:
 
-The model still sees everything - The whole point of RLMs is that the root model never sees the full string directly in its context.
-No actual recursion - Real RLMs spawn sub-calls that have genuinely isolated context. This prompt simulates the structure but not the mechanism. The model has to pretend it can't see things it  can see.
-Single-pass limitation - True RLMs can iterate dynamically based on what they find. This prompt asks for a plan upfront, which may not adapt well to unexpected document structure.
+- The model still sees everything: The whole point of RLMs is that the root model never sees the full string directly in its context.
+- No actual recursion: Real RLMs spawn sub-calls that have genuinely isolated context. This prompt simulates the structure but not the mechanism. The model has to pretend it can't see things it  can see.
+- Single-pass limitation: True RLMs can iterate dynamically based on what they find. This prompt asks for a plan upfront, which may not adapt well to unexpected document structure.
 
 What its Useful For:
 
