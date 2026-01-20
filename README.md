@@ -3,8 +3,11 @@ This repo provide a prompt template that simulates an RLM (as per https://arxiv.
 This prompt:
 
 Forces structured thinking: The explicit steps prevent the model from just "vibes-based" reasoning over a huge input
+
 Locality constraint: "Do NOT reference information outside the current subset" is a way to simulate the isolation that real RLMs enforce mechanically
+
 Hierarchical synthesis: Mirrors how the paper's approach aggregates results bottom-up
+
 Clear output structure: Makes it easy to see where reasoning might have gone wrong
 
 Limitations:
