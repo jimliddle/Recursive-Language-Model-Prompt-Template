@@ -1,0 +1,14 @@
+# For very long documents, add iteration:
+If any chunk is still too large to extract confidently, 
+return to PHASE 2 and sub-partition that chunk only.
+Maximum recursion depth: 3
+
+# For adversarial/tricky inputs:
+PHASE 0: STATE YOUR PRIORS
+Before scanning, write what you would GUESS the answer 
+might be based on the objective alone. This makes it 
+harder to retrofit reasoning to a premature conclusion.
+
+# For multi-document inputs:
+Treat each document as a separate partition in Phase 2.
+Cross-document synthesis only happens in Phase 5.
