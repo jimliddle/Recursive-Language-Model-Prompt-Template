@@ -25,4 +25,4 @@ What its Useful For:
 
 - Compliance and audit tasks
 
-Knowledge extraction pipelines
+- Knowledge extraction pipelines
